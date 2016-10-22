@@ -1,0 +1,38 @@
+body {
+    background: #b3dbe8;
+    color: #000;
+    font-family: "Open Sans", Arial, sans-serif;   */
+    font-size: 100%; 
+    padding: 5%;
+}
+
+a:link, a:visited, a:active {
+    color: #0287b3;
+}
+
+a:hover {
+    color: #3ecbfa;
+}
+a:visited {
+    color: #f442aa;
+}
+a:active {
+    color: #ee42f4;
+
+}
+a:link   {
+    color: ##428ff4;
+}
+
+a:focus, {
+    color: ##7442f4;
+}
+@media (max-width: 600px) {
+    #firstcontainer {
+    display: none;   
+    }
+    #secondcontainer {
+    display: none;
+    }
+}
+   

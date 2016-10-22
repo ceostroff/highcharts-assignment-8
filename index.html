@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/styles/index.css"> 
+<title>Refugees</title>
+
+    <!-- add jQuery in the head of your page -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans"           rel="stylesheet">    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js">     </script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js">     </script>
+
+        <!-- add Highcharts in the head of your page -->
+        <script src="js/highcharts.js"></script>
+
+        <!-- change to another Highcharts theme - optional -->
+        <script src="js/themes/grid-light.js"></script>
+
+        <!-- add print and export features - this is optional -->
+        <script src="js/modules/exporting.js"></script>
+</head>
+<body>
+<h1> How Many Refugees Are Coming to the U.S. and Why? </h1>
+<p> Following the start of the Syrian Civil War in 2011, millions of Syrians have had to flee their homes. In 2011, peaceful protests of the Syrian government started after 15 boys were defined and tortured for having supported the “Arab Spring” revolts in nearby countries. Syrian President Bashar al-Assad killed and imprisoned protestors, <a href="http://www.bbc.com/news/world-middle-east-26116868"> according to the British Broadcasting Company.</a> </p>
+<div id="firstcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+$(function () {
+    $('#firstcontainer').highcharts({
+    
+        title: {
+            text: 'Growth in Refugees Coming to U.S. By County of Origin',
+          x: -20//center
+        },
+        subtitle: {
+            text: 'Click the columns to view numbers by country. <a href="https://www.dhs.gov/yearbook-immigration-statistics-2014-refugees-and-asylees">Source: Department of Homeland Security</a>.',
+          x: -20
+        },
+        xAxis: {
+           categories: ['2005', '2006', '2007', '2008', '2009', '2010', '2010', '2011', '2012', '2013', '2014'],
+        },
+        yAxis: {
+            title: {
+                text: 'Number of Refugees'
+            },
+            min: 0,
+            max: 20000,
+            plotLines: [{
+                value: 0,
+                width: 1,
+                color: '#808080'
+            }]
+         
+            
+        },
+        tooltip: {
+            valueSuffix: ' refugees'
+        },
+        legend: {
+            layout: 'vertical',
+            align: 'right',
+            verticalAlign: 'middle',
+            borderWidth: 0
+        },
+       series: [{
+            name: 'Iraq',
+            data: [198,	202,	1608,	13822,	18838,	18016, 9388,	12163,	19487,	19769]
+        }, {
+            name: 'Pakistan',
+            data: [9,	20,	30,	104,	67,	59,	54,	274,	158,	240]
+        }, {
+            name: 'Syria',
+            data: [7,	27,	17,	24,	25,	25,	29,	31,	36,	105]
+        }, {
+            name: 'Democratic Republic of the Congo',
+            data: [424,	405,	848,	727,	1135,	3174,	977,	1863,	2563,	4540]
+        }, {
+            name: 'Burma',
+            data: [1447,	1612,	13896,	18139,	18202,	16693,	16972,	14160,	16299,	14598]
+        }]
+    });
+});    
+
+</script>
+<p><a href="https://www.dhs.gov/yearbook-immigration-statistics-2014-refugees-and-asylees">Source:</a> 'Data from the Department of Homeland Security’s Table 14 Refugee Arrivals by Region and County of Nationality: Fiscal Years 2005 to 2014. </p>
+
+<p> 
+    In July, the rebel group the Free Syrian Army was formed. It aimed to overthrow the government and the country’s civil war started. Many resented the government for residents having little freedoms and economic hardship. More than 250,000 have died since 2011. More than 4.5 million have fled the conflict, leading other countries to figure out how to accommodate those people. Some have fled to neighboring Lebanon, Jordan and Turkey. Europe has also taken refugees and President Barack Obama raised the number of refugees America to admit to 10,000 for a 2016 fiscal year - a goal met by the end of August, <a href="http://www.nytimes.com/interactive/2016/08/30/us/syrian-refugees-in-the-united-states.html"> according to the New York Times.</a> </p></p>
+    
+<div id="secondcontainer" style="min-width: 310px; height: 400px; margin: 0 auto"></div>
+
+<script>
+    $(function () {
+    // Create the chart
+    $('#secondcontainer').highcharts({
+        chart: {
+            type: 'column',
+          
+        },
+        title: {
+            text: 'Percent Change in Refugee Admission by Country of Origin from 2005 to 2014'
+        },
+        subtitle: {
+            text: 'Click the columns to view numbers by country. <a href="https://www.dhs.gov/yearbook-immigration-statistics-2014-refugees-and-asylees">Source: Department of Homeland Security</a>.'
+        },
+        xAxis: {
+            type: 'country',
+            categories:['Iraq', 'Pakistan', 'Syria', 'Democratic Reublic of the Congo', 'Burma'],
+        },
+        
+        yAxis: {
+            title: {
+                text: 'Rate of Growth'
+            }
+
+        },
+        legend: {
+            enabled: false
+        },
+        plotOptions: {
+            series: {
+                borderWidth: 0,
+                dataLabels: {
+                    enabled: true,
+                    format: '{point.y:.1f}'
+                }
+            }
+        },
+
+        tooltip: {
+            headerFormat: '<span style="font-size:11px">{series.name}</span><br>',
+            pointFormat: '<span style="color:{point.color}">{point.name}</span>: <b>{point.y:.2f}</b><br/>'
+        },
+
+        series: [{
+            name: 'Country',
+            colorByPoint: true,
+            data: [{
+                name: 'Iraq',
+                y: 9884,
+                drilldown: 'Microsoft Internet Explorer'
+            }, {
+                name: 'Pakistan',
+                y: 2567,
+                drilldown: 'Pakistan'
+            }, {
+                name: 'Syria',
+                y: 1400,
+                drilldown: 'Syria'
+            }, {
+                name: 'Democratic Republic of the Congo',
+                y: 971,
+                drilldown: 'Democratic Republic of the Congo'
+            }, {
+                name: 'Burma',
+                y: 909,
+                drilldown: 'Burma'
+            }]
+        }],
+        
+    });
+});
+</script>
+<p><a href="https://www.dhs.gov/yearbook-immigration-statistics-2014-refugees-and-asylees">Source:</a> 'Data from the Department of Homeland Security’s Table 14 Refugee Arrivals by Region and County of Nationality: Fiscal Years 2005 to 2014. </p>
+<p> By Caitlin Ostroff </p>
+
+    </body>
